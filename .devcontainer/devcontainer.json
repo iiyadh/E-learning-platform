@@ -1,0 +1,37 @@
+{
+  "name": "E-Learning Platform",
+  "build": {
+    "dockerfile": "Dockerfile"
+  },
+  "forwardPorts": [3000, 8080, 5432, 5672, 6379, 9000, 9090, 3001],
+  "portsAttributes": {
+    "3000": { "label": "Frontend", "onAutoForward": "notify" },
+    "8080": { "label": "API Gateway", "onAutoForward": "notify" },
+    "5432": { "label": "PostgreSQL", "onAutoForward": "silent" },
+    "5672": { "label": "RabbitMQ", "onAutoForward": "silent" },
+    "6379": { "label": "Redis", "onAutoForward": "silent" },
+    "9000": { "label": "MinIO Console", "onAutoForward": "notify" },
+    "9090": { "label": "Prometheus", "onAutoForward": "silent" },
+    "3001": { "label": "Grafana", "onAutoForward": "notify" }
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "vscjava.vscode-java-pack",
+        "vmware.vscode-boot-dev-pack",
+        "gabrielbb.vscode-lombok",
+        "pivotal.vscode-spring-boot",
+        "ms-vscode.vscode-typescript-next",
+        "dbaeumer.vscode-eslint",
+        "esbenp.prettier-vscode",
+        "bradlc.vscode-tailwindcss",
+        "ms-azuretools.vscode-docker",
+        "yzhang.markdown-all-in-one",
+        "redhat.vscode-xml",
+        "redhat.vscode-yaml"
+      ]
+    }
+  },
+  "postCreateCommand": "chmod +x scripts/*.sh",
+  "remoteUser": "vscode"
+}

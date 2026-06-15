@@ -1,0 +1,35 @@
+# OS
+Thumbs.db
+.DS_Store
+
+# IDE
+.idea/
+*.iml
+.vscode/
+.project
+.classpath
+.settings/
+
+# Java / Maven
+backend/**/target/
+*.class
+*.jar
+*.war
+*.log
+
+# Node / Next.js
+frontend/web/node_modules/
+frontend/web/.next/
+frontend/web/out/
+frontend/web/.turbo/
+
+# Environment
+.env
+.env.local
+*.env.local
+
+# Docker
+docker-compose.override.yml
+
+# Monitoring
+infrastructure/monitoring/grafana/grafana.db
