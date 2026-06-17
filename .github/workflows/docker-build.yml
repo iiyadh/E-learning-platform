@@ -13,13 +13,13 @@ jobs:
       - uses: actions/checkout@v4
 
       - name: Build Gateway
-        run: docker build -t gateway ./backend/api-gateway
+        run: docker build -t gateway --build-arg SERVICE=api-gateway ./backend
 
       - name: Build User Service
-        run: docker build -t user-service ./backend/services/user-service
+        run: docker build -t user-service --build-arg SERVICE=user-service ./backend
 
       - name: Build Course Service
-        run: docker build -t course-service ./backend/services/course-service
+        run: docker build -t course-service --build-arg SERVICE=course-service ./backend
 
       - name: Build Frontend
         run: docker build -t frontend ./frontend/web
