@@ -23,6 +23,11 @@ spring:
     username: ${RABBITMQ_USERNAME:elearning}
     password: ${RABBITMQ_PASSWORD:elearning}
 
+jwt:
+  secret: ${JWT_SECRET:c2VjcmV0LWtleS1mb3ItZWxlYXJuaW5nLXBsYXRmb3JtLTI1Ng==}
+  access-token-expiration: ${JWT_ACCESS_TOKEN_EXPIRATION:900000}
+  refresh-token-expiration: ${JWT_REFRESH_TOKEN_EXPIRATION:604800000}
+
 management:
   endpoints:
     web:

@@ -1,5 +1,8 @@
 package com.elearning.user.controller;
 
+import com.elearning.user.dto.LoginRequest;
+import com.elearning.user.dto.LoginResponse;
+import com.elearning.user.dto.RefreshRequest;
 import com.elearning.user.dto.RegisterRequest;
 import com.elearning.user.dto.RegisterResponse;
 import com.elearning.user.service.AuthService;
@@ -9,7 +12,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/api/auth")
+@RequestMapping("/api/v1/auth")
 @RequiredArgsConstructor
 public class AuthController {
 
@@ -21,6 +24,13 @@ public class AuthController {
         return authService.register(request);
     }
 
+    @PostMapping("/login")
+    public LoginResponse login(@Valid @RequestBody LoginRequest request) {
+        return authService.login(request);
+    }
 
-    //TODO: Implement login endpoint
+    @PostMapping("/refresh")
+    public LoginResponse refresh(@Valid @RequestBody RefreshRequest request) {
+        return authService.refresh(request);
+    }
 }
